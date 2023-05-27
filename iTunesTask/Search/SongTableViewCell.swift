@@ -18,13 +18,12 @@ class SongTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.frame.size.height = 50
-        imageView.frame.size.width = 50
         return imageView
     }()
     lazy var trackName: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.minimumScaleFactor = 0.5
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "No Song Name"
         label.adjustsFontSizeToFitWidth = false
@@ -33,7 +32,8 @@ class SongTableViewCell: UITableViewCell {
     }()
     lazy var artistName: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.minimumScaleFactor = 0.5
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -83,8 +83,8 @@ class SongTableViewCell: UITableViewCell {
 extension SongTableViewCell{
     private func setConstraints(){
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: self.topAnchor),
-            container.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            container.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            container.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             container.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
@@ -95,10 +95,12 @@ extension SongTableViewCell{
             
             albumImage.centerXAnchor.constraint(equalTo: activityIndicator.centerXAnchor),
             albumImage.centerYAnchor.constraint(equalTo: activityIndicator.centerYAnchor),
+            albumImage.topAnchor.constraint(equalTo: activityIndicator.topAnchor),
+            albumImage.bottomAnchor.constraint(equalTo: activityIndicator.bottomAnchor),
             
             
             trackName.leadingAnchor.constraint(equalTo: activityIndicator.trailingAnchor, constant: 4),
-            trackName.topAnchor.constraint(equalTo: activityIndicator.topAnchor, constant: 20),
+            trackName.topAnchor.constraint(equalTo: activityIndicator.topAnchor),
             trackName.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             
             artistName.leadingAnchor.constraint(equalTo: trackName.leadingAnchor),

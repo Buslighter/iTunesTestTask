@@ -32,7 +32,7 @@ class PlayerViewController: UIViewController{
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     lazy var artistName: UILabel = {
@@ -41,7 +41,7 @@ class PlayerViewController: UIViewController{
         label.textColor = .systemGray
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -113,7 +113,6 @@ extension PlayerViewController{
             albumImageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 40),
             albumImageView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -20),
             albumImageView.widthAnchor.constraint(equalTo: albumImageView.heightAnchor),
-            albumImageView.bottomAnchor.constraint(greaterThanOrEqualTo: trackName.topAnchor, constant: -40),
             
             trackName.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             trackName.bottomAnchor.constraint(equalTo: artistName.topAnchor, constant: 4),
@@ -122,13 +121,16 @@ extension PlayerViewController{
             artistName.leadingAnchor.constraint(equalTo: trackName
                 .leadingAnchor),
             artistName.trailingAnchor.constraint(equalTo: trackName.trailingAnchor),
-            artistName.bottomAnchor.constraint(greaterThanOrEqualTo: playButton.topAnchor, constant: -12),
+            artistName.bottomAnchor.constraint(greaterThanOrEqualTo: playButton.topAnchor, constant: -80),
             
             playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playButton.bottomAnchor.constraint(greaterThanOrEqualTo: margins.bottomAnchor, constant: -60),
+            playButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -60),
             playButton.widthAnchor.constraint(equalToConstant: 60),
             playButton.heightAnchor.constraint(equalToConstant: 60)
             
         ])
+        let albumImageViewBotConst = albumImageView.bottomAnchor.constraint(greaterThanOrEqualTo: trackName.topAnchor, constant: -40)
+        albumImageViewBotConst.priority = UILayoutPriority(rawValue: 500)
+        albumImageViewBotConst.isActive = true
     }
 }
