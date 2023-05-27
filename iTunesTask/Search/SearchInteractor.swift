@@ -20,7 +20,7 @@ class SearchInteractor: SearchInteractorProtocol{
             if result.trackName == nil{
                 trackName = result.collectionName
             }
-            let data = PlayerData(artistName: result.artistName, trackName: trackName, image: image)
+            let data = PlayerData(artistName: result.artistName, trackName: trackName, image: image, audioURL: result.previewUrl)
             self?.presenter?.passTransofrmedDataToVc(answer: data)
         })
     }

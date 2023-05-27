@@ -15,7 +15,7 @@ struct AnswerForKeyword: Codable {
 struct Result: Codable {
     let artistName: String?
     let trackName: String?
-    let previewURL: String?
+    let previewUrl: String?
     let collectionName: String?
     let artworkUrl60: String?
     let artworkUrl100: String?
@@ -25,4 +25,5 @@ struct PlayerData{
     let artistName: String?
     let trackName: String?
     let image: UIImage?
+    let audioURL: String?
 }

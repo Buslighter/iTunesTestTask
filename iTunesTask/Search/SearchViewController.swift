@@ -45,7 +45,7 @@ final class SearchViewController: UIViewController, UISearchBarDelegate {
         let label = UILabel()
         label.text = "Минимум 3 символа и только EN буквы и символы"
         label.textColor = .red
-        label.font = UIFont.systemFont(ofSize: 8)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.isHidden = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -105,7 +105,7 @@ extension SearchViewController{
             cancelButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -8),
             cancelButton.centerYAnchor.constraint(equalTo: searchSongView.centerYAnchor),
         
-            songsTableView.topAnchor.constraint(equalTo: searchSongView.bottomAnchor, constant: 4),
+            songsTableView.topAnchor.constraint(equalTo: redLabel.bottomAnchor, constant: 8),
             songsTableView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8),
             songsTableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             songsTableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
