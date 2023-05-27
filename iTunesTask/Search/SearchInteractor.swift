@@ -26,9 +26,19 @@ class SearchInteractor: SearchInteractorProtocol{
     }
     
     weak var presenter: SearchPresenterProtocol?
-    
+    private func checkIfKeywordValid(keyword: String) -> Bool{
+        if keyword.count<3{
+            return false
+        }
+        for i in keyword{
+            if ((i >= "а" && i <= "я") || (i >= "А" && i <= "Я")){
+                return false
+            }
+        }
+        return true
+    }
     func loadData(keyword: String) {
-        if keyword.count>2{
+        if checkIfKeywordValid(keyword: keyword){
             DataService().getDataForKeyword(keyword: keyword, completion: { [weak self] result in
                 self?.presenter?.didLoad(result: result)
             })

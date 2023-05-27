@@ -43,7 +43,7 @@ final class SearchViewController: UIViewController, UISearchBarDelegate {
     }()
     lazy var redLabel: UILabel = {
         let label = UILabel()
-        label.text = "Минимум 3 символа"
+        label.text = "Минимум 3 символа и только EN буквы и символы"
         label.textColor = .red
         label.font = UIFont.systemFont(ofSize: 8)
         label.isHidden = true
