@@ -18,7 +18,6 @@ struct Result: Codable {
     let previewUrl: String?
     let collectionName: String?
     let artworkUrl60: String?
-    let artworkUrl100: String?
 }
 
 struct PlayerData{

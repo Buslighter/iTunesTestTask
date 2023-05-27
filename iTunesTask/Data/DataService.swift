@@ -27,7 +27,8 @@ class DataService{
     }
     
     func loadImageByURL(url: String, completion:@escaping(UIImage?) -> Void){
-                if let url = URL(string: url){
+        let modifiedUrl = url.replacingOccurrences(of: "60x60", with: "800x800") //API trick, change url60 to url800 resolution
+                if let url = URL(string: modifiedUrl){
                     URLSession.shared.dataTask(with: URLRequest(url: url)){data, response, error in
                         DispatchQueue.main.async {
                             if let data, let image = UIImage(data: data){

@@ -15,7 +15,7 @@ protocol SearchInteractorProtocol: AnyObject{
 class SearchInteractor: SearchInteractorProtocol{
     func transformData(result: Result) {
         
-        DataService().loadImageByURL(url: result.artworkUrl100 ?? "", completion: {[weak self] image in
+        DataService().loadImageByURL(url: result.artworkUrl60 ?? "", completion: {[weak self] image in
             var trackName = result.trackName
             if result.trackName == nil{
                 trackName = result.collectionName

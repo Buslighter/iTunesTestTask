@@ -17,7 +17,7 @@ class SongTableViewCell: UITableViewCell {
     lazy var albumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     lazy var trackName: UILabel = {
